@@ -22,3 +22,8 @@ Useful link:
 - L293D datasheet 
   http://www.ti.com/lit/ds/symlink/l293.pdf
 
+#### This is a screenshot of the web interface
+
+<div align="center">
+  <img src="Screenshot.jpg" width=50%>
+</div>
