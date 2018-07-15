@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Raspberry Pi Remote Controlled Car</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+
+<style>
+.triangle-up {
+	width: 0;
+	height: 0;
+	border-left: 40px solid #eadedb;
+	border-right: 40px solid #eadedb;
+	border-bottom: 70px solid #0040ff;
+}
+
+.triangle-down {
+	width: 0;
+	height: 0;
+	border-left: 40px solid #eadedb;
+	border-right: 40px solid #eadedb;
+	border-top: 70px solid #0040ff;
+}
+
+.triangle-left {
+	width: 0;
+	height: 0;
+	border-top: 40px solid #eadedb;
+	border-right: 70px solid #0040ff;
+	border-bottom: 40px solid #eadedb;
+}
+
+.triangle-right {
+	width: 0;
+	height: 0;
+	border-top: 40px solid #eadedb;
+	border-left: 70px solid #0040ff;
+	border-bottom: 40px solid #eadedb;
+}
+</style>
+</head>
+
+
+<body style="background-color:#eadedb;">
+<br/>
+
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-2">
+			<div href="#" id="up" class="triangle-up" ></div><br/><br/>
+			<div href="#" id="down" class="triangle-down" ></div>
+    </div>
+    <div class="col-6" >
+			<center>
+			<img src="http://192.168.43.136:8081" style="width:100%" > <!--Enter the IP Address of your Raspberry Pi   "http://192.168.43.136:8081"  -->
+    </div>
+    <div class="col-4">
+      <div class="row">
+        <div class="col">
+					<div href="#" id="left" class="triangle-left" style="float:right;"></div>				
+		</div>
+        <div class="col">
+					<div href="#" id="right" class="triangle-right" style="float:right;"></div>
+		</div>
+		
+  	{% if Light.state == true %}
+		 <div class="row">
+			 <div class="col-md-2"><br/>
+			 <img src="/static/Lighton.png" alt="on" width="42"/>
+		     <a href="/{{Light['pin']}}/off" class="btn btn-dark" role="button">Lights off</a>
+		     </div>
+		 </div>
+	{% else %}
+		 <div class="row">
+			 <div class="col-md-2"><br/>
+			 <img src="/static/Lightoff.png" alt="off" width="42"/>
+		     <a href="/{{Light['pin']}}/on" class="btn btn-warning" role="button">Lights on</a>
+		     </div>
+		 </div>
+	{% endif %}		
+		
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+$( document ).ready(function(){
+    $("#down").on("mousedown touchstart", function() {
+     $.get('/down');
+		 $("#down").css("border-top", "70px solid #00cc00");
+   }).on("mouseup touchend", function() {
+     $.get('/stopFB');
+		 $("#down").css("border-top", "70px solid #0040ff");
+    });
+    $("#up").on("mousedown touchstart", function() {
+     $.get('/up');
+		 $("#up").css("border-bottom", "70px solid #00cc00");
+   }).on("mouseup touchend", function() {
+     $.get('/stopFB');
+		 $("#up").css("border-bottom", "70px solid #0040ff");
+    });
+    $("#left").on("mousedown touchstart", function() {
+     $.get('/left');
+		 $("#left").css("border-right", "70px solid #00cc00");
+     }).on("mouseup touchend", function() {
+     $.get('/stopLR');
+		 $("#left").css("border-right", "70px solid #0040ff");
+    });
+    $("#right").on("mousedown touchstart", function() {
+     $.get('/right');
+		 $("#right").css("border-left", "70px solid #00cc00");
+     }).on("mouseup touchend", function() {
+     $.get('/stopLR');
+		 $("#right").css("border-left", "70px solid #0040ff");
+    });
+});
+</script>
+
+</body>
+</html>
