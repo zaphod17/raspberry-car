@@ -12,12 +12,13 @@ In addition of direction control we have put a button for turn on and turn off t
 
 Useful link:
 
-A javascript (jQuery) and Python (with Flask) code to control engines.
-https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot
+- A javascript (jQuery) and Python (with Flask) code to control engines.
+  https://circuitdigest.com/microcontroller-projects/web-controlled-raspberry-pi-surveillance-robot
 
-How to configure the raspberry pi cam correctly. 
-https://pimylifeup.com/raspberry-pi-webcam-server/
+- How to configure the raspberry pi cam correctly. 
+  https://pimylifeup.com/raspberry-pi-webcam-server/
 
 
-L293D datasheet http://www.ti.com/lit/ds/symlink/l293.pdf
+- L293D datasheet 
+  http://www.ti.com/lit/ds/symlink/l293.pdf
 
