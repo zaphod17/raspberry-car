@@ -19,3 +19,5 @@ How to configure the raspberry pi cam correctly.
 https://pimylifeup.com/raspberry-pi-webcam-server/
 
 
+L293D datasheet http://www.ti.com/lit/ds/symlink/l293.pdf
+
