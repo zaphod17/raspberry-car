@@ -25,5 +25,5 @@ Useful link:
 #### This is a screenshot of the web interface
 
 <div align="center">
-  <img src="Screenshot.jpg" width=50%>
+  <img src="Screenshot.jpg" width=50% align=left>
 </div>
