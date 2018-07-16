@@ -1,5 +1,5 @@
 # raspberry-car
-We write this code to check an old car radio remote using Raspberry Pi 3.
+We write this code to control an old toy car using Raspberry Pi 3.
 We started with a car controlled by a radio command.
 The radio transmitter was removed and we replaced it with a raspberry pi 3.
 
